@@ -18,6 +18,7 @@ enum Layers {
     LOL,
     LOL_FN,
     GAME,
+    GAME_FN,
     FACTORIO,
     FACTORIO_FN,
     OSU,
@@ -116,6 +117,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   XXXXXXX,   XXXXXXX,   XXXXXXX,   KC_P,        /*|*/          KC_1,  KC_2, KC_3, KC_4, KC_5,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         /*|*/          KC_R, KC_A, KC_W, KC_D, KC_RIGHT_SHIFT,
         XXXXXXX,   XXXXXXX,   XXXXXXX,   XXXXXXX,   XXXXXXX,          /*|*/          KC_C, KC_Q, KC_S, KC_E, KC_LEFT_CTRL,
+                                    XXXXXXX, DF(BASE),          /*|*/           MO(GAME_FN), KC_SPC
+    ),
+        [GAME_FN] = LAYOUT_split_3x5_2(
+        /*
+         * Media/Config layer
+         */
+        KC_ESC,   XXXXXXX,   XXXXXXX,   XXXXXXX,   KC_P,        /*|*/          KC_6,  KC_7, KC_8, KC_9, KC_0,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         /*|*/          KC_T, KC_I, KC_L, KC_U, KC_LEFT_SHIFT,
+        XXXXXXX,   XXXXXXX,   XXXXXXX,   XXXXXXX,   XXXXXXX,          /*|*/          KC_H, KC_G, KC_M, KC_O, KC_RIGHT_CTRL,
                                     XXXXXXX, DF(BASE),          /*|*/           KC_F, KC_SPC
     ),
         [FACTORIO] = LAYOUT_split_3x5_2(
