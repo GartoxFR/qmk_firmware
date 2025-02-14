@@ -2,7 +2,6 @@
 #include "keycodes.h"
 #include "quantum/keycode.h"
 #include "quantum/quantum_keycodes.h"
-#include "users/callum/oneshot.h"
 #include "specials.h"
 
 #include QMK_KEYBOARD_H
@@ -24,7 +23,7 @@ enum Layers {
     OSU,
 };
 
-
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_split_3x5_2(
         /*
@@ -87,10 +86,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_NO, KC_NO,          /*|*/           KC_NO, KC_NO
     ),
         [SPC] = LAYOUT_split_3x5_2(
-            XP(AE1,AE2),XP(EA1,EA2),XP(EG1,EG2),X(RGSTD),   X(TM),      X(YEN),     XP(UG1,UG2),XP(IT1,IT2),XP(OE1,OE2),X(POUND),
-            XP(AG1,AG2),XP(ET1,ET2),XP(EC1,EC2),X(EURO),    X(LAQOT),   X(RAQOT),   XP(UC1,UC2),XP(IC1,IC2),XP(OC1,OC2),X(IQEST),
-            XP(AC1,AC2),X(CROSS),   XP(CC1,CC2),X(CPYRT),   X(DEG),     XP(NT1,NT2),X(MU),      X(MDOT),    X(ELIPS),   XXXXXXX,
-                                            _______,    X(NBSPC),   KC_RSFT,    _______
+            UP(AE1,AE2),UP(EA1,EA2),UP(EG1,EG2),UM(RGSTD),   UM(TM),      UM(YEN),     UP(UG1,UG2),UP(IT1,IT2),UP(OE1,OE2),UM(POUND),
+            UP(AG1,AG2),UP(ET1,ET2),UP(EC1,EC2),UM(EURO),    UM(LAQOT),   UM(RAQOT),   UP(UC1,UC2),UP(IC1,IC2),UP(OC1,OC2),UM(IQEST),
+            UP(AC1,AC2),UM(CROSS),   UP(CC1,CC2),UM(CPYRT),   UM(DEG),     UP(NT1,NT2),UM(MU),      UM(MDOT),    UM(ELIPS),   XXXXXXX,
+                                            _______,    UM(NBSPC),   KC_RSFT,    _______
         ),
         [LOL] = LAYOUT_split_3x5_2(
         /*
@@ -115,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          * Media/Config layer
          */
         KC_ESC,   XXXXXXX,   XXXXXXX,   XXXXXXX,   KC_P,        /*|*/          KC_1,  KC_2, KC_3, KC_4, KC_5,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         /*|*/          KC_R, KC_A, KC_W, KC_D, KC_RIGHT_SHIFT,
+        XXXXXXX, XXXXXXX, KC_K, KC_J, XXXXXXX,         /*|*/          KC_R, KC_A, KC_W, KC_D, KC_RIGHT_SHIFT,
         XXXXXXX,   XXXXXXX,   XXXXXXX,   XXXXXXX,   XXXXXXX,          /*|*/          KC_C, KC_Q, KC_S, KC_E, KC_LEFT_CTRL,
                                     XXXXXXX, DF(BASE),          /*|*/           MO(GAME_FN), KC_SPC
     ),
@@ -158,7 +157,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
+// clang-format on
+
 layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, NUM, SYM, NAV);
 }
-
